@@ -23,8 +23,6 @@ public class UserService {
     }
 
     public ResponseEntity<?> CreateUser(User user){
-        int a =10;
-        
         Optional<User> opUsername = userRepository.findByUsername(user.getUsername());
         if(opUsername.isPresent()){
             return new ResponseEntity<>("already exists by username", HttpStatus.INTERNAL_SERVER_ERROR);
